@@ -10,7 +10,10 @@ class Task extends Component {
     }
 
     sendMsg = ()=>{
-        this.props.setMsg(this.state)
+        this.props.setMsg(this.state);
+       this.setState({
+           msg : ""
+       })
     }
 
     render() {
@@ -19,7 +22,7 @@ class Task extends Component {
                 <div className="row m-5">
                 <div className="col-8 offset-2">
                     <div className="input-group">
-                            <input type="text" onChange={this.newMsg} placeholder="New Task" className="form-control" />
+                            <input type="text" onChange={this.newMsg} value={this.state.msg} placeholder="New Task" className="form-control" />
                             <div className="input-group-append">
                         <button onClick = {this.sendMsg} className="btn btn-primary">Add</button>
                     </div>

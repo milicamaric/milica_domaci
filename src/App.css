@@ -1,0 +1,14 @@
+.precrtaj{
+    text-decoration: line-through;
+}
+.nePrecrtaj{
+    text-decoration: none;
+}
+
+
+/* #app{
+    background-image: url("/slike/pozadina.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+

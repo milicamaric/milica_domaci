@@ -4,7 +4,7 @@ import React from 'react';
 
 const Contact =  ()=>{
     return(
-        <h1>Contact</h1>
+        <h1>Autor: Milica Maric 2020/1030</h1>
     )
 }
 

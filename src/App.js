@@ -10,19 +10,35 @@ import SvePoruke from './components/SvePoruke';
 class App extends Component {
 
     state = {
-        allMsg : [
-            { id : 1, msg : "CAo", mark : false},
-            { id : 2, msg : "Ej",mark : false}
+        allMsg: [
+
 
         ]
     }
 
-    setMsg = (vracenoIzTask)=>{
+    mark = (index) => {
+        const copyArr = [...this.state.allMsg]
+
+        copyArr[index].mark = !copyArr[index].mark
+        this.setState({
+            allMsg: copyArr
+        })
+    }
+
+    deleteAcc = (index) => {
+        const copyArr = [...this.state.allMsg]
+        copyArr.splice(index, 1)
+        this.setState({
+            allMsg: copyArr
+        })
+    }
+
+    setMsg = (vracenoIzTask) => {
         console.log(vracenoIzTask)
-        vracenoIzTask.id = Math.floor(Math.random()*(10000-10)+10)
+        vracenoIzTask.id = Math.floor(Math.random() * (10000 - 10) + 10)
         console.log(vracenoIzTask)
         const ubaci = [...this.state.allMsg, vracenoIzTask];
-        this.setState({allMsg : ubaci})
+        this.setState({ allMsg: ubaci })
     }
     render() {
         return (
@@ -30,13 +46,13 @@ class App extends Component {
                 <BrowserRouter>
                     <Navbar />
                     <Route exact path="/">
-                        <Task setMsg = {this.setMsg} />
-                        <SvePoruke allMsg={this.state.allMsg} />
+                        <Task setMsg={this.setMsg} />
+                        <SvePoruke allMsg={this.state.allMsg} deleteAcc={this.deleteAcc} mark={this.mark} />
                     </Route>
                     <Route path="/contact">
                         <Contact />
                     </Route>
-                    
+
                 </BrowserRouter>
 
             </div>
